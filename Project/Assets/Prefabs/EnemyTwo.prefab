@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8220198eb1545a44091421056906ce08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 1678898791553926, guid: 1a511969dc3374fc29cebe521e61205f, type: 2}
   enemyRB: {fileID: 0}
   playerManager: {fileID: 0}
 --- !u!114 &114727340596204576

@@ -49,7 +49,7 @@ public class GUIManager : MonoBehaviour {
         {
             count = (int)Time.time; //Force it to int so that we don't get float values in the timer.
             var objText = gameObject.GetComponent<Text>();
-            objText.text = (count.ToString() + "s");
+            objText.text = (count.ToString());
         }
     }
 }

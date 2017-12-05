@@ -29,7 +29,8 @@ public class Shooting : MonoBehaviour
 
         // If it's not on cooldown, fire a bullet and remove one from the ammo counter.
         playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
-        Rigidbody2D bulletShot = Instantiate(bulletPrefab, new Vector3(transform.position.x + 0.5f, transform.position.y + 0.4f, transform.position.z), transform.rotation) as Rigidbody2D;
+        Rigidbody2D bulletShot = Instantiate(bulletPrefab, new Vector3(transform.position.x + 0.5f, transform.position.y + 0.4f, 
+                                                                       transform.position.z), transform.rotation) as Rigidbody2D;
         bulletShot.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletSpeed, bulletSpeed - 200));
         playerManager.PlayerAmmoCount = Mathf.Clamp(playerManager.PlayerAmmoCount - 1, 0, 300);
         lastShot = Time.time;

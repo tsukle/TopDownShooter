@@ -1,0 +1,13 @@
+# Compiled Builds #
+builds/
+build/
+
+# Packages - Really have no need for any of these to be sent up the pipeline. #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip

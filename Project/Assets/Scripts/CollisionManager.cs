@@ -6,7 +6,7 @@ public class CollisionManager : MonoBehaviour {
     #region Variables
     //Classes
     private AttributeManager attributeManager;
-    public object[] raiseAmounts = new object[2] { 5, 3 };
+    public object[] raiseAmounts = new object[2] { 5, 10 };
     #endregion
 
     // Find components and assign values to variables.
@@ -28,12 +28,12 @@ public class CollisionManager : MonoBehaviour {
                 attributeManager.ReSupply();
                 Destroy(obj);
                 break;
-            //Buffing Refuel
+            //Buffing Refuel (CREATED BUT NOT IMPLEMENTED)
             case "RaiseRefuel":
                 attributeManager.CoRouteReFuel(raiseAmounts);
                 Destroy(obj);
                 break;
-            //Buffing Resupply
+            //Buffing Resupply (CREATED BUT NOT IMPLEMENTED)
             case "RaiseResupply":
                 attributeManager.CoRouteReSupply(raiseAmounts);
                 Destroy(obj);

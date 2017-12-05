@@ -10,7 +10,9 @@ public class BackgroundManager : MonoBehaviour {
 
     // Run the texture offset through update to scroll the background.
     void Update () {
-        Vector2 bgOffset = new Vector2(Time.time * horizontalSpeed / 2f, Time.time * verticalSpeed / 2f); //Halving each value to slow it down to a speed similar to Blue Max.
-        GetComponent<Renderer>().material.mainTextureOffset = bgOffset; //Set the texture offset to the new coordinates.
+		//Halving each value to slow it down to a speed similar to Blue Max.
+		Vector2 bgOffset = new Vector2(Time.time * horizontalSpeed / 2f, Time.time * verticalSpeed / 2f);
+		//Set the texture offset to the new coordinates.
+		GetComponent<Renderer>().material.mainTextureOffset = bgOffset;
 	}
 }

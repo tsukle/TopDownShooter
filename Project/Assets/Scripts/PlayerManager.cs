@@ -60,7 +60,7 @@ public class PlayerManager : MonoBehaviour
         verticalSpeed = 5f;
         horizontalSpeed = 8f;
         playerFuelCount = 10;
-        playerAmmoCount = 10;
+        playerAmmoCount = 40;
         playerLivesCount = 5;
     }
 
@@ -70,6 +70,7 @@ public class PlayerManager : MonoBehaviour
         // Only move if lives and fuel are still present.
         if (playerFuelCount != 0 && playerLivesCount != 0)
         {
+            //Take in the movement and multiply it by deltaTime to make sure that it stays equal based on FPS.
             movementX = Input.GetAxis("Horizontal") * Time.deltaTime * horizontalSpeed;
             movementY = Input.GetAxis("Vertical") * Time.deltaTime * verticalSpeed;
 
@@ -77,7 +78,9 @@ public class PlayerManager : MonoBehaviour
             maxBoundary = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
             //Stop the player from going out of camera bounds (world moves player doesn't).
-            transform.position = new Vector2(Mathf.Clamp(transform.position.x, minBoundary.x + 0.6f, maxBoundary.x - 0.6f), Mathf.Clamp(transform.position.y, minBoundary.y + 2.6f, maxBoundary.y - 0.5f));
+            //Extra values in the calculations stop the player from going behind the black bar.
+            transform.position = new Vector2(Mathf.Clamp(transform.position.x, minBoundary.x + 0.6f, maxBoundary.x - 0.6f), 
+                                             Mathf.Clamp(transform.position.y, minBoundary.y + 2.6f, maxBoundary.y - 0.5f));
             transform.Translate(movementX, movementY, 0);
         }
 
@@ -91,6 +94,11 @@ public class PlayerManager : MonoBehaviour
         if(playerAmmoCount == 0)
         {
             shootingScript.enabled = false;
+        }
+
+        if(playerAmmoCount != 0)
+        {
+            shootingScript.enabled = true;
         }
     }
 

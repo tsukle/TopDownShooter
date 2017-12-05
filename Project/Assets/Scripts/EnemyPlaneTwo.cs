@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyPlaneTwo : MonoBehaviour
 {
     // Public
-    //public Object particleSystem;
+    public GameObject particles;
     public Rigidbody2D enemyRB;
     public PlayerManager playerManager;
 
@@ -38,6 +38,9 @@ public class EnemyPlaneTwo : MonoBehaviour
         {
             playerManager.PlayerLivesCount = Mathf.Clamp(playerManager.PlayerLivesCount - 1, 0, 3);
             Destroy(gameObject);
+			GameObject inst = Instantiate(particles, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+									  Quaternion.identity);
+			Destroy(inst, 1f);
         }
 
         if (col.gameObject.tag == "Bullet")
@@ -52,6 +55,9 @@ public class EnemyPlaneTwo : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+			GameObject inst = Instantiate(particles, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+									  Quaternion.identity);
+			Destroy(inst, 1f);
             playerManager.PlayerScoreCount = Mathf.Clamp(playerManager.PlayerScoreCount + 5, 0, 9999999);
         }
     }

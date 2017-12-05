@@ -2,13 +2,13 @@
 The coursework specification for this semester requires us to create a top down plane/shooter game based roughly around the game Blue Max.
 
 > Author: ***Emilis Tobulevicius***  
-> Game Engine: ***Unity 5.6.3f1***  
+> Game Engine: ***Unity 5.6.3f1+***  
 > Integrated Development Environment: ***Microsoft Visual Studio Community 2015***  
 > Artwork: ***Paint.NET and Photoshop CC 2017.***
 
 ## 1 Ready-Stage
 ### 1.1 November Presentation
-> Each band that I think my game has passed will have a `passed` value in the passed column.
+> Each band that I think my game has passed will have a `passed` value in the *passed* column.
 
 | Bands | Criterion | Passed |
 |:-----:|:---------:|:------:|

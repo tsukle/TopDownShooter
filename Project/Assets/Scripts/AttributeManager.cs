@@ -5,8 +5,8 @@ using UnityEngine;
 public class AttributeManager : MonoBehaviour {
     #region Variables
     // Private
-    private int reFuelAmount { get; set; }
-    private int reSupplyAmount { get; set; }
+    private int reFuelAmount;
+    private int reSupplyAmount;
     private int count;
 
     //Classes
@@ -20,7 +20,7 @@ public class AttributeManager : MonoBehaviour {
 
         //Assigners
         reFuelAmount = 2;
-        reSupplyAmount = 2;
+        reSupplyAmount = 20;
 
     }
 
@@ -36,13 +36,12 @@ public class AttributeManager : MonoBehaviour {
     // Re-Fuels the players plane.
     public void ReFuel() {
         playerManager.PlayerFuelCount = Mathf.Clamp(playerManager.PlayerFuelCount + reFuelAmount, 0, 10);
-        //playerManager.PlayerFuelCount = reFuelAmount;
         Debug.Log("Plane has been refueled: " + playerManager.PlayerFuelCount);
     }
 
     // Re-Supplies the players bomb count.
     public void ReSupply() {
-        playerManager.PlayerAmmoCount = Mathf.Clamp(playerManager.PlayerAmmoCount + reSupplyAmount, 0, 5);
+        playerManager.PlayerAmmoCount = Mathf.Clamp(playerManager.PlayerAmmoCount + reSupplyAmount, 0, 40);
         Debug.Log("Plane has been resupplied: " + playerManager.PlayerAmmoCount);
     }
 
@@ -57,23 +56,23 @@ public class AttributeManager : MonoBehaviour {
         StartCoroutine("RaiseReSupply", parms);
     }
 
-    // Raises the size of the reFuelling for 5 seconds.
+    // Raises the size of the reFuelling for 30 seconds.
     public IEnumerator RaiseReFuel(object[] parameters) {
         Debug.Log("Started the buff (ReFuel)");
         int amount = (int)parameters[0];
         reFuelAmount += amount;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(30);
         Debug.Log("Stopped the buff (ReFuel)");
         reFuelAmount -= amount;
     }
 
-    // Raises the size of the reFuelling for 5 seconds.
+    // Raises the size of the reFuelling for 30 seconds.
     public IEnumerator RaiseReSupply(object[] parameters)
     {
         Debug.Log("Started the buff (Resupply)");
         int amount = (int)parameters[1];
         reSupplyAmount += amount;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(30);
         Debug.Log("Stopped the buff (Resupply)");
         reSupplyAmount -= amount;
     }
